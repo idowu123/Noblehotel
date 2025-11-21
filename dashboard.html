@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module">
+    import { db, auth } from '.firebase.js';
+    
+    // Now you can use db and auth
+    console.log(db, auth);
+    </script>
+  <!-- js/firebase.js -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <h2>Hotel Dashboard</h2>
+  <button id="logoutBtn">Logout</button>
+  <h3>Bookings</h3>
+  <table id="bookingsTable">
+    <thead>
+      <tr>
+        <th>Room</th>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Update Availability</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script type="module" src="dashboard.js"></script>
+</body>

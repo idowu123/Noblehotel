@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module">
+    import { db, auth } from '.firebase.js';
+    
+    // Now you can use db and auth
+    console.log(db, auth);
+    </script>
+  <!-- js/firebase.js -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <p id="error" class="small" style="color:red;"></p>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

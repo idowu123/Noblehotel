@@ -1,0 +1,52 @@
+<!-- success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Booking Confirmed</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module">
+    import { db, auth } from '.firebase.js';
+    
+    // Now you can use db and auth
+    console.log(db, auth);
+    </script>
+<!-- js/firebase.js -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <header><h2>Booking Confirmed 🎉</h2></header>
+
+    <div class="booking-box" id="confirmBox"></div>
+
+    <div style="margin-top:12px">
+      <a href="index.html" class="btn">Back to Rooms</a>
+    </div>
+  </div>
+
+  <script>
+    const last = JSON.parse(localStorage.getItem('lastBooking'));
+    const box = document.getElementById('confirmBox');
+    if (!last) {
+      box.innerHTML = '<p class="small">No booking found in local storage. Check your email for confirmation.</p>';
+    } else {
+      box.innerHTML = `
+        <p><strong>Customer:</strong> ${last.customerName}</p>
+        <p><strong>Room:</strong> ${last.roomName}</p>
+        <p><strong>Check-in:</strong> ${last.checkin || 'N/A'}</p>
+        <p><strong>Check-out:</strong> ${last.checkout || 'N/A'}</p>
+        <p><strong>Price:</strong> ₦${Number(last.price).toLocaleString()}</p>
+        <p><strong>Payment Ref:</strong> ${last.paymentRef}</p>
+      `;
+      // optionally clear lastBooking after showing
+      // localStorage.removeItem('lastBooking');
+    }
+  </script>
+</body>
+</html>
+
